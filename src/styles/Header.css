@@ -1,0 +1,82 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.username-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.position-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-color);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 10px 10px 10px;
+    align-items: center;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-actions .search input[type="text"] {
+    padding: 10px;
+    border-radius: 100px;
+    width: 500px;
+    padding: 10px 15px;
+    color: var(--text-color);
+    border: 2px solid #ccc;
+}
+
+.profilePicture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.header-text {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+
+
+.notification {
+    
+}
+
+.header-actions .search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.header-actions .search .search-icon {
+    position: absolute;
+    right: 15px; /* Position it inside the input field */
+    color: #aaa;
+    pointer-events: none; /* Ensure the icon doesn't interfere with typing */
+}

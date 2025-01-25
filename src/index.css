@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #0A1B47;
+    --background-color: #F8F8F8;
+    --text-color: #0A0F1F;
+    --success: #00A362;
+    --error: #AE2438;
+    --warning: #FF5310;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+main {
+    padding: 10px;
+}

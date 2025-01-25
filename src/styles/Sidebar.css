@@ -1,0 +1,10 @@
+.nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.Sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
