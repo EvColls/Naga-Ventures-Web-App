@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import Header from "../../../components/Header";
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';

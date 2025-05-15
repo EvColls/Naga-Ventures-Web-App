@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Header from "../../components/Header";
+import Header from "../../../components/Header";
+import { useNavigate } from "react-router-dom";
+import AddIcon from "@mui/icons-material/Add";
 import {
   Box,
   Button,
@@ -24,9 +26,7 @@ import {
   Checkbox,
   ListItemText,
   OutlinedInput,
-  IconButton,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 
 const categories = [
   "All",
@@ -51,112 +51,112 @@ const data = [
   },
   {
     id: 2,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Holy Rosary Minor Seminary",
+    address: "Elias Angeles St, Naga, 4400 Camarines Sur",
+    description: "A historical and religious seminary.",
+    categories: ["Historical", "Religious Sites"],
+    businessHours: ["Always Open"],
+    admissionFee: "Free",
     profilePicture: null,
   },
   {
     id: 3,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Naga Metropolitan Cathedral",
+    address: "Peñafrancia Ave, Naga, Camarines Sur",
+    description: "The main cathedral of the Archdiocese of Caceres.",
+    categories: ["Religious Sites"],
+    businessHours: ["6:00 AM - 7:00 PM Daily"],
+    admissionFee: "Free",
     profilePicture: null,
   },
   {
     id: 4,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Museo ni Jesse Robredo",
+    address: "Rizal St, Naga, Camarines Sur",
+    description: "Museum dedicated to the late Jesse Robredo.",
+    categories: ["Historical", "Museum"],
+    businessHours: ["9:00 AM - 5:00 PM (Tue-Sun)"],
+    admissionFee: "Free",
     profilePicture: null,
   },
   {
     id: 5,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Plaza Rizal",
+    address: "General Luna St, Naga, Camarines Sur",
+    description: "A central urban plaza.",
+    categories: ["Urban Attractions", "Historical"],
+    businessHours: ["Always Open"],
+    admissionFee: "Free",
     profilePicture: null,
   },
   {
     id: 6,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Mount Isarog National Park",
+    address: "Part of Camarines Sur province",
+    description: "A protected area with natural beauty.",
+    categories: ["Natural"],
+    businessHours: ["Daytime"],
+    admissionFee: "Minimal fee may apply",
     profilePicture: null,
   },
   {
     id: 7,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "CWC Watersports Complex",
+    address: "Provincial Capitol Complex, Pili, Camarines Sur",
+    description: "A popular watersports complex.",
+    categories: ["Sports and Recreation"],
+    businessHours: ["9:00 AM - 6:00 PM Daily"],
+    admissionFee: "Varies based on activity",
     profilePicture: null,
   },
   {
     id: 8,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Ateneo de Naga University - Arrupe Hall",
+    address: "Ateneo Avenue, Bagumbayan Sur, Naga City",
+    description: "Event venue within the university.",
+    categories: ["Urban Attractions"],
+    businessHours: ["Varies based on events"],
+    admissionFee: "Varies based on events",
     profilePicture: null,
   },
   {
     id: 9,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Bicol Medical Center",
+    address: "Concepcion Pequeña, Naga City",
+    description: "A major hospital in the region.",
+    categories: ["Urban Attractions"], // Could be debated, but for example
+    businessHours: ["24/7 (Visiting hours may vary)"],
+    admissionFee: "N/A",
     profilePicture: null,
   },
   {
     id: 10,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "SM City Naga",
+    address: "Roxas Ave, Triangulo, Naga, Camarines Sur",
+    description: "A large shopping mall.",
+    categories: ["Urban Attractions"],
+    businessHours: ["10:00 AM - 9:00 PM Daily"],
+    admissionFee: "Free",
     profilePicture: null,
   },
   {
     id: 11,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Magsaysay Avenue",
+    address: "Naga City",
+    description: "A vibrant street with restaurants and nightlife.",
+    categories: ["Urban Attractions"],
+    businessHours: ["Varies"],
+    admissionFee: "Free (for walking around)",
     profilePicture: null,
   },
   {
     id: 12,
-    name: "Ateneo de Naga University",
-    address: "Ateneo Avenue, ...",
-    description: "A school.",
-    categories: ["Historical"],
-    businessHours: ["Mon-Fri 8AM-5PM"],
-    admissionFee: "",
+    name: "Caramoan Islands",
+    address: "Caramoan Peninsula, Camarines Sur",
+    description: "Beautiful group of islands (further from Naga but a tourist spot).",
+    categories: ["Natural"],
+    businessHours: ["Daytime"],
+    admissionFee: "Island hopping fees apply",
     profilePicture: null,
   },
 ];
@@ -164,6 +164,9 @@ const data = [
 const ITEMS_PER_PAGE = 10;
 
 function TouristSpot() {
+
+  const navigate = useNavigate();
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
@@ -325,7 +328,13 @@ function TouristSpot() {
                   <TableCell>{spot.address}</TableCell>
                   <TableCell>{getDisplayCategory(spot)}</TableCell>
                   <TableCell>
-                    <Button variant="contained" size="small">
+                    <Button
+                      variant="contained"
+                      size="small"
+                      onClick={() =>
+                        navigate(`/tourism/tourist-spot/${spot.id}`)
+                      }
+                    >
                       View Full Details
                     </Button>
                   </TableCell>
