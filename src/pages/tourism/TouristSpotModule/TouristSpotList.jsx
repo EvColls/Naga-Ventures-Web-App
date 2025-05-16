@@ -30,9 +30,9 @@ import {
 
 const categories = [
   "All",
-  "Historical",
+  "Historical Landmark",
   "Natural",
-  "Religious Sites",
+  "Religious Site",
   "Museum",
   "Urban Attractions",
   "Sports and Recreation",
@@ -123,7 +123,8 @@ const data = [
       clicks: 2500,
       reviews: 55,
     },
-  },  {
+  },
+  {
     id: 6,
     name: "CWC Watersports Complex",
     address: "Provincial Capitol Complex, Pili, Camarines Sur",
@@ -255,10 +256,9 @@ const data = [
   },
 ];
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 12;
 
 function TouristSpot() {
-
   const navigate = useNavigate();
 
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -426,9 +426,10 @@ function TouristSpot() {
                       variant="contained"
                       size="small"
                       onClick={() =>
-  navigate(`/tourism/TouristSpotModule/TouristSpotDetails/${spot.id}`)
-}
-
+                        navigate(
+                          `/tourism/TouristSpotModule/TouristSpotDetails/${spot.id}`
+                        )
+                      }
                     >
                       View Full Details
                     </Button>
