@@ -124,7 +124,7 @@ function Sidebar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/tourism/tourist-spot" className="nav-link text-white">
+              <Link to="/tourism/TouristSpotModule/TouristSpotList" className="nav-link text-white">
                 <HiMap className="me-2" /> Tourist Spots
               </Link>
             </li>
