@@ -1,7 +1,9 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import Header from '../../../components/Header';
-import { Box, Typography, Stack, Chip, Divider, Paper } from '@mui/material';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import Header from "../../../components/Header";
+import { Box, Typography, Stack, Chip, Divider, Paper } from "@mui/material";
 
 const dummyData = [
   {
@@ -118,7 +120,8 @@ const dummyData = [
     id: 12,
     name: "Caramoan Islands",
     address: "Caramoan Peninsula, Camarines Sur",
-    description: "Beautiful group of islands (further from Naga but a tourist spot).",
+    description:
+      "Beautiful group of islands (further from Naga but a tourist spot).",
     categories: ["Natural"],
     businessHours: ["Daytime"],
     admissionFee: "Island hopping fees apply",
@@ -131,12 +134,31 @@ function TouristSpotDetails() {
   const spotId = parseInt(id);
   const spot = dummyData.find((item) => item.id === spotId);
 
+  const navigate = useNavigate();
+
   if (!spot) {
     return (
       <>
         <Header title="Tourist Spot Details" />
+
         <Box p={3}>
-          <Typography variant="h6" color="error">Tourist spot not found.</Typography>
+          <Button
+            variant="outlined"
+            onClick={() =>
+              navigate("/tourism/TouristSpotModule/TouristSpotList")
+            }
+            sx={{ mb: 2 }}
+          >
+            ← Back to List
+          </Button>
+
+          <Paper elevation={3} sx={{ p: 4 }}></Paper>
+        </Box>
+
+        <Box p={3}>
+          <Typography variant="h6" color="error">
+            Tourist spot not found.
+          </Typography>
         </Box>
       </>
     );
@@ -145,34 +167,57 @@ function TouristSpotDetails() {
   return (
     <>
       <Header title="Tourist Spot Details" />
+
       <Box p={3}>
+
+        <Button
+          variant="outlined"
+          onClick={() => navigate("/tourism/TouristSpotModule/TouristSpotList")}
+        >
+          ← Back to List
+        </Button>
+        
         <Paper elevation={3} sx={{ p: 4 }}>
-          <Typography variant="h4" gutterBottom>{spot.name}</Typography>
+          <Typography variant="h4" gutterBottom>
+            {spot.name}
+          </Typography>
           <Typography variant="body1" gutterBottom color="text.secondary">
             {spot.address}
           </Typography>
 
           <Divider sx={{ my: 2 }} />
 
-          <Typography variant="subtitle1" fontWeight="bold">Description</Typography>
-          <Typography variant="body2" paragraph>{spot.description}</Typography>
+          <Typography variant="subtitle1" fontWeight="bold">
+            Description
+          </Typography>
+          <Typography variant="body2" paragraph>
+            {spot.description}
+          </Typography>
 
-          <Typography variant="subtitle1" fontWeight="bold" mt={2}>Categories</Typography>
+          <Typography variant="subtitle1" fontWeight="bold" mt={2}>
+            Categories
+          </Typography>
           <Stack direction="row" spacing={1} mt={1} mb={2}>
             {spot.categories.map((cat, index) => (
               <Chip key={index} label={cat} color="primary" />
             ))}
           </Stack>
 
-          <Typography variant="subtitle1" fontWeight="bold">Business Hours</Typography>
+          <Typography variant="subtitle1" fontWeight="bold">
+            Business Hours
+          </Typography>
           <ul>
             {spot.businessHours.map((hour, index) => (
               <li key={index}>{hour}</li>
             ))}
           </ul>
 
-          <Typography variant="subtitle1" fontWeight="bold" mt={2}>Admission Fee</Typography>
-          <Typography variant="body2">{spot.admissionFee || "Free / None"}</Typography>
+          <Typography variant="subtitle1" fontWeight="bold" mt={2}>
+            Admission Fee
+          </Typography>
+          <Typography variant="body2">
+            {spot.admissionFee || "Free / None"}
+          </Typography>
         </Paper>
       </Box>
     </>

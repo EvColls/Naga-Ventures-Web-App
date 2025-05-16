@@ -63,8 +63,8 @@ function App() {
             <Route path="/tourism/accommodation" element={<Accommodation />} />
             <Route path="/tourism/shop" element={<Shop />} />
             <Route path="/tourism/event" element={<Event />} />
-            <Route path="/tourism/tourist-spot" element={<TouristSpotList />} />
-            <Route path="/tourism/tourist-spot/:id" element={<TouristSpotDetails />} />
+            <Route path="/tourism/TouristSpotModule/TouristSpotList" element={<TouristSpotList />} />
+            <Route path="/tourism/TouristSpotModule/TouristSpotDetails/:id" element={<TouristSpotDetails />} />
 
             {/* Owner Section */}
             <Route path="/owner/dashboard" element={<OwnerDashboard />} />

@@ -332,7 +332,7 @@ function TouristSpot() {
                       variant="contained"
                       size="small"
                       onClick={() =>
-                        navigate(`/tourism/tourist-spot/${spot.id}`)
+                        navigate(`/tourism/TouristSpotModule/TouristSpotDetails/${spot.id}`)
                       }
                     >
                       View Full Details
